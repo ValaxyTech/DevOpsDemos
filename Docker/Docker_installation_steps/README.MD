@@ -1,4 +1,14 @@
-# Docker Installation
+# Installing on Amazon Linux server
+
+1.Update packages
+```sh 
+yum install -y
+```
+2.Install docker
+```sh 
+yum install docker -y
+
+# Docker Installation on CentOS server
 
 Please follow below steps for to install docker CE on CentoOS server instance. there is nod docker CE for Redhat server. 
 
@@ -39,13 +49,5 @@ sudo systemctl start docker
 sudo docker run hello-world
 ```
 
-# Installing on Amazon Linux server
 
-1.Update packages
-```sh 
-yum install -y
-```
-2.Install docker
-```sh 
-yum install docker -y
 ```
