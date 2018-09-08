@@ -32,7 +32,7 @@ sudo yum install -y yum-utils \
     https://download.docker.com/linux/centos/docker-ce.repo
 ```
 
-### INSTALL DOCKER CE
+### INSTALLING DOCKER CE
 
 1.Install the latest version of Docker CE.
 ```sh 
