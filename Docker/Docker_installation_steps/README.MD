@@ -7,6 +7,7 @@ yum install -y
 2.Install docker
 ```sh 
 yum install docker -y
+```
 
 # Docker Installation on CentOS server
 
@@ -47,7 +48,4 @@ sudo systemctl start docker
 3.Verify that docker is installed correctly by running the hello-world image.
 ```sh
 sudo docker run hello-world
-```
-
-
 ```
