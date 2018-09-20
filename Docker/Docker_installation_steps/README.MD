@@ -2,7 +2,7 @@
 
 1.Update packages
 ```sh 
-yum install -y
+yum update -y
 ```
 2.Install docker
 ```sh 
