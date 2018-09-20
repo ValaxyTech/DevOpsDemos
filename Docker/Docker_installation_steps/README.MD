@@ -13,7 +13,7 @@ yum install docker -y
 ##### Referance URL : https://docs.docker.com/install/linux/docker-ce/centos/#install-using-the-repository
 ### PREREQUISITES
 
-Please follow below steps for to install docker CE on CentoOS server instance. there is nod docker CE for Redhat server. 
+Please follow below steps to install docker CE on CentoOS server instance. there is no docker CE for Redhat server. 
 
 1.Install required packages.
 
