@@ -1,4 +1,4 @@
-# Installing on Amazon Linux server
+# Installing Docker on Amazon Linux server
 
 1.Update packages
 ```sh 
