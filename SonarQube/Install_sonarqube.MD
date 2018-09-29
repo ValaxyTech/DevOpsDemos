@@ -1,14 +1,17 @@
 
-###     ------ ON EC2 Instance ------ 
+###     ------ On EC2 Instance ------ 
 
-2. Install mysql client version 
+1. Install mysql client version 
 ```sh
 # yum install mysql mysql-php php
 ```
-3. Install java 
+2. Install java 
 ```sh
 # yum install java-1.8.0-openjdk -y
 ```
+3. Create MySql RDS instance in AWS
+
+###      ------ On RDS Instance ------
 4. Create a new sonar database
 ```sh
 CREATE DATABASE sonar CHARACTER SET utf8 COLLATE utf8_general_ci;
@@ -34,6 +37,7 @@ SELECT User FROM mysql.user;
 FLUSH PRIVILEGES;
 QUIT
 ```
+###       ------ On EC2 Instance ------
 
 8. Download Latest sonarqube version from website. 
 website: https://www.sonarqube.org/downloads/
