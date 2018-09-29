@@ -1,5 +1,5 @@
 
-### ON EC2 Instance 
+###     ------ ON EC2 Instance ------ 
 
 2. Install mysql client version 
 ```sh
