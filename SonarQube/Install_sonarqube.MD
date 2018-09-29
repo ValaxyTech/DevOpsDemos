@@ -10,8 +10,9 @@
 # yum install java-1.8.0-openjdk -y
 ```
 4. Create a new sonar database
-
+```sh
 CREATE DATABASE sonar CHARACTER SET utf8 COLLATE utf8_general_ci;
+```
 
 5. Create a local and a remote user
 ```sh
