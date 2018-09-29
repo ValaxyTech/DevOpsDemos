@@ -2,19 +2,19 @@
 1. setup mysql RDS instance and allow to access sonarqube server. 
 
 2. Install mysql client version 
-```
-yum install mysql mysql-php php
 ```sh
-3. Install java 
+yum install mysql mysql-php php
 ```
+3. Install java 
+```sh
 yum install java-1.8.0-openjdk -y
-```sh 
+```
 4. Create a new sonar database
 
 CREATE DATABASE sonar CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 5. Create a local and a remote user
-```
+```sh
 CREATE USER sonar@localhost IDENTIFIED BY 'sonar';
 CREATE USER sonar@'%' IDENTIFIED BY 'sonar';
 ```sh 
