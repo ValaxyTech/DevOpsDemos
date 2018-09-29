@@ -1,5 +1,5 @@
 
-1. setup mysql RDS instance and allow to access sonarqube server. 
+### ON EC2 Instance 
 
 2. Install mysql client version 
 ```sh
