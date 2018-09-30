@@ -29,9 +29,9 @@ vi /opt/nexus/bin/nexus.rc
 ```
 
 5. Add nexus as a service 
-```
+```sh
 sudo ln -s /opt/nexus/bin/nexus /etc/init.d/nexus
-```sh 
+```
 
 6. Login as a nexus user and start service
 ```sh
