@@ -10,7 +10,7 @@
  # cd /opt
  # wget http://nginx.org/download/nginx-1.15.4.tar.gz
  # tar -zxvf nginx-1.15.4.tar.gz
- # mv nginx-1.15.4.tar /nginx 
+ # mv nginx-1.15.4 /nginx 
 ```
  
 3. In order to compile our source code we need to install dependences. 
