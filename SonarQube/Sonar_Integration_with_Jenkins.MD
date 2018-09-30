@@ -24,7 +24,7 @@ sonar.host.url=http://<Sonarqube_server>:9000
 2. Login to jenkins console and install "Sonarqube scanner" plugin
 
 ```sh 
-  Manage Jenkins --> Manage Pluins --> Available --> Search for "Sonarqube scanner" --> Install with restart 
+  Manage Jenkins --> Manage Plugins --> Available --> Search for "Sonarqube scanner" --> Install with restart 
  ```
  
 3. Configure sonarqube server name and authentication toaken 
