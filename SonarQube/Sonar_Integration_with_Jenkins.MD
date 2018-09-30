@@ -48,12 +48,12 @@ Provide below sonar property details under Build --> Execute SonarQube Scanner -
 
 ```sh
 # Required paramateries 
-Sonar.ProjectKey=valaxy
-Sonar.ProjectName=ValaxyDemo
-Sonar.ProjectVersion=1.0
+sonar.projectKey=Valaxy
+sonar.projectName=ValaxyDemo
+sonar.projectVersion=1.0
 
 #Artifactory directory
-Sonar.Sources=/var/lib/jenkins/workspace/$JOB_NAME/webapp/src
+sonar.sources=/var/lib/jenkins/workspace/$JOB_NAME/webapp/src
 ```
 6. Execute job to get analysis report. 
 
