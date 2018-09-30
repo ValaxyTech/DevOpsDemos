@@ -45,7 +45,7 @@ http://<Nexus_server>:8081
 
 8. Use defualt credentials to login 
 
-username : admin
+username : admin <br />
 password : admin123
 
 
