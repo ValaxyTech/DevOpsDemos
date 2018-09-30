@@ -25,18 +25,18 @@ Pre-requisites:
 
 4. Open /opt/nexus/bin/nexus.rc file, uncomment run_as_user parameter and set it as following.
 ```sh 
-vi /opt/nexus/bin/nexus.rc
+# vi /opt/nexus/bin/nexus.rc
 ```
 
 5. Add nexus as a service 
 ```sh
-sudo ln -s /opt/nexus/bin/nexus /etc/init.d/nexus
+# sudo ln -s /opt/nexus/bin/nexus /etc/init.d/nexus
 ```
 
 6. Login as a nexus user and start service
 ```sh
-su - nexus
-sudo service nexus start
+# su - nexus
+# service nexus start
 ```
 
 7. Login nexus server from browser on port 8081
