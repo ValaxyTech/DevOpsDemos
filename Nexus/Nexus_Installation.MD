@@ -10,6 +10,7 @@ yum install java-1.8.0-openjdk -y
 
 2. Download and setup nexus stable version
 ```sh 
+cd /opt
 sudo wget https://sonatype-download.global.ssl.fastly.net/nexus/3/nexus-3.0.2-02-unix.tar.gz
 
 tar -zxvf  nexus-3.0.2-02-unix.tar.gz
