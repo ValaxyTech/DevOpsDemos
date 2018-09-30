@@ -17,7 +17,7 @@ Downlaod : https://sonarsource.bintray.com/Distribution/sonar-scanner-cli/sonar-
 
 2. Set sonarqube server details in sonar-scanner property file 
 ```sh 
-# vi /opt/sonar_scanner/sonar-scanner.properties
+# vi /opt/sonar_scanner/conf/sonar-scanner.properties
 sonar.host.url=http://<Sonarqube_server>:9000
 ```
 
