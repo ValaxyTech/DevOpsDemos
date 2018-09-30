@@ -43,6 +43,11 @@ Pre-requisites:
 
 http://<Nexus_server>:8081
 
+8. Use defualt credentials to login 
+
+username : admin
+password : admin123
+
 
 ### Troubleshooting
 
