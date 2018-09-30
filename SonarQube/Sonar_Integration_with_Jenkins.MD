@@ -39,8 +39,8 @@ sonar.host.url=http://<Sonarqube_server>:9000
 4. Configure sonarqube scanner and path
 ```sh
    Manage Jenkins --> Global Tool Configuration --> SonarQube Scanner 
-   Name  : Sonarqube
-   SONAR_RUNNER_HOME : /opt/sonar
+   Name  : sonar_scanner
+   SONAR_RUNNER_HOME : /opt/sonar_scanner
 ```
 
 5. Create a job to test sonarqube. 
