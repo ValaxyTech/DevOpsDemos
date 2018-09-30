@@ -54,9 +54,9 @@ After=syslog.target network.target remote-fs.target nss-lookup.target
 
 [Service]
 Type=forking
-PIDFile=/var/run/nginx.pid # Default valure is /run/nginx.pid
-ExecStartPre=/usr/bin/nginx -t  # Default Value is /usr/bin/nginx -t
-ExecStart=/usr/bin/nginx  # Default value is /usr/sbin/nginx 
+PIDFile=/var/run/nginx.pid 
+ExecStartPre=/usr/bin/nginx -t  
+ExecStart=/usr/bin/nginx 
 ExecReload=/usr/sbin/nginx -s reload
 ExecStop=/bin/kill -s QUIT $MAINPID
 PrivateTmp=true
@@ -64,8 +64,9 @@ PrivateTmp=true
 [Install]
 WantedBy=multi-user.target
 ```
- 7. Start nging and test 
+ 7. Start nginx and test 
  ```sh 
- # systemctl nginx start
+ # systemctl start nginx
+ # systemctl enable nginx
  # ps aux | grep nginx
  ```
