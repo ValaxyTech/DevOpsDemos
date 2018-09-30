@@ -37,7 +37,7 @@
  # nginx -V
  # nginx 
  ```
- 
+
 6. Setup nginx as a system servicecreate a file /lib/systemd/system/nginx.service and copy below URL content into that and modify according to your file path locations. 
 ```sh 
 
@@ -65,3 +65,8 @@ PrivateTmp=true
 [Install]
 WantedBy=multi-user.target
 ```
+ 7. Start nging and test 
+ ```sh 
+ # systemctl nginx start
+ # ps aux | grep nginx
+ ```
