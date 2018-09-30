@@ -5,12 +5,13 @@
 SonarQube Integration with Jenkins
 
 1. Login to jenkins server and install sonarqube scanner. 
-```sh 
+
 Sonarqube scanner URL : https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner
 Downlaod : https://sonarsource.bintray.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.2.0.1227-linux.zip
+```sh 
 # wget https://sonarsource.bintray.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.2.0.1227-linux.zip
 # unzip sonar-scanner-cli-3.2.0.1227-linux.zip
-# cp sonar-scanner-3.2.0.1227-linux sonar_scanner 
+# mv sonar-scanner-3.2.0.1227-linux /opt/sonar_scanner 
 ```
 
 2. Set sonarqube server details in sonar-scanner property file 
