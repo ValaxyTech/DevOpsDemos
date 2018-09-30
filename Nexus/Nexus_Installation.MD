@@ -1,7 +1,5 @@
 ###       ------ Nexus Installation ------
 
-Pre-requisites:
-
 1. Install java
 
 ```sh
