@@ -22,7 +22,7 @@
 4. Run /opt/nginx/configure file with below parameters 
 ```sh
 	# cd /opt/nginx 
-	# ./configure --sbin-path=/usr/bin/nginx --conf-path=/etc/nginx/nginx.conf  --error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/access.log --with-pcre --pid-path=/var/run/nginx.pid --with_http_ssl_module
+	# ./configure --sbin-path=/usr/bin/nginx --conf-path=/etc/nginx/nginx.conf  --error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/access.log --with-pcre --pid-path=/var/run/nginx.pid --with-http_ssl_module
 ```
 
 5. Now compile and install  nginx 
