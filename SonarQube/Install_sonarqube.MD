@@ -58,8 +58,9 @@ Note: for this video I have downloaded version 6.0 : https://sonarsource.bintray
 sonar.jdbc.username=sonar
 sonar.jdbc.password=sonar
 mysql://sonarqubedb.c3rw4o6y09ny.ap-southeast-1.rds.amazonaws.com:3306/sonar?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true&useConfigs=maxPerformance&useSSL=false
-sonar.web.context=/sonar
 sonar.web.host=0.0.0.0
+sonar.web.context=/sonar
+
 ```
 
 11. Implement SonarQube server as a service [optional]
