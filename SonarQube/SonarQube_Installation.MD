@@ -1,4 +1,4 @@
-##                                 ------ SonarQube Installations ------ 
+##                                 ------ SonarQube Installation ------ 
 
 To install SonarQube we need an Linux EC2 instance which is installed MySQL otherwise Launch MySQL RDS instance to acomplish this
 
