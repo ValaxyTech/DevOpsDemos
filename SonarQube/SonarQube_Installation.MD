@@ -74,6 +74,11 @@ sonar.web.context=/sonar
 13. Start SonarQube service 
 ```
 # cd /opt/sonar/bin/linux-x86-64/
+
+###  Troubleshooting 
+
+1. Check whether you enabled port 9000 in EC2 instance security group
+2. Check whether you enabled EC2 instance IP range in RDS security group
 # ./sonar.sh start
 
 ##### Optional 
