@@ -1,35 +1,59 @@
+##       ------ SonarQube Installations ------ 
 
-###     ------ On EC2 Instance ------ 
+Pre-requisites: 
+1. Need one EC2 instance
+2. Need one MySQL server/ RDS MySQL Instances
 
-1. Install mysql client version 
+Implementation Steps: 
+
+1. Launch an RDS MySQL Database Instance (It takes few minutes) 
+
+2. Launch an EC2 instance and Install MySQL client version 
+
 ```sh
-# yum install mysql mysql-php php
+# yum install mysql
 ```
-2. Install java 
+
+3. Install java 
 ```sh
 # yum install java-1.8.0-openjdk -y
 ```
-3. Create MySql RDS instance in AWS
+4. Download Latest sonarqube version from website. 
+website: https://www.sonarqube.org/downloads/
 
-###      ------ On RDS Instance ------
-4. Create a new sonar database
+Note: for this video I have downloaded version 6.0 : https://sonarsource.bintray.com/Distribution/sonarqube/sonarqube-6.0.zip
+
+5. download & unzip it to EC2 instance
+```sh
+# cd /opt
+# wget https://sonarsource.bintray.com/Distribution/sonarqube/sonarqube-6.0.zip
+# unzip sonarqube-6.0.zip
+# mv /opt/sonarqube-6.0 /opt/sonar
+```
+6. Allow RDS instance security group to access SonarQube server 
+
+7. Connect to RDS instance 
+```sh 
+mysql -h <RDS_Instance_endpoint>:3306 -u sonardb -p 
+```
+8. Create a new sonar database
 ```sh
 CREATE DATABASE sonar CHARACTER SET utf8 COLLATE utf8_general_ci;
 ```
 
-5. Create a local and a remote user
+9. Create a local and a remote user
 ```sh
 CREATE USER sonar@localhost IDENTIFIED BY 'sonar';
 CREATE USER sonar@'%' IDENTIFIED BY 'sonar';
 ```
 
-6. Grant users permissions
+10. Grant users permissions
 ```sh
 GRANT ALL ON sonar.* TO sonar@localhost;
 GRANT ALL ON sonar.* TO sonar@'%';
 ```
 
-7. check users and databases 
+11. check users and databases 
 ```sh
 use mysql
 show databases;
@@ -39,20 +63,7 @@ QUIT
 ```
 ###       ------ On EC2 Instance ------
 
-8. Download Latest sonarqube version from website. 
-website: https://www.sonarqube.org/downloads/
-
-Note: for this video I have downloaded version 6.0 : https://sonarsource.bintray.com/Distribution/sonarqube/sonarqube-6.0.zip
-
-9. download & unzip it to EC2 instance
-```sh
-# cd /opt
-# wget https://sonarsource.bintray.com/Distribution/sonarqube/sonarqube-6.0.zip
-# unzip sonarqube-6.0.zip
-# mv /opt/sonarqube-6.0 /opt/sonar
-```
-
-10. edit sonarqube properties file 
+12. edit sonarqube properties file 
 ```sh
 # vi /opt/sonar/conf/sonar.properties
 sonar.jdbc.username=sonar
@@ -63,14 +74,21 @@ sonar.web.context=/sonar
 
 ```
 
-11. Implement SonarQube server as a service [optional]
+13. Start SonarQube service 
+```
+# cd /opt/sonar/bin/linux-x86-64/
+# ./sonar.sh start
+
+##### Optional 
+
+14. Implement SonarQube server as a service
 ```sh
 Copy sonar.sh to etc/init.d/sonar and modify it according to your platform.
 # sudo cp /opt/sonar/bin/linux-x86-64/sonar.sh /etc/init.d/sonar
 # sudo vi /etc/init.d/sonar
 ```
 
-12. add below values to your /etc/init.d/sonar file
+15. add below values to your /etc/init.d/sonar file
 ```sh
 Insert/modify below values
 SONAR_HOME=/opt/sonar
@@ -81,7 +99,7 @@ WRAPPER_CONF="${SONAR_HOME}/conf/wrapper.conf"
 PIDDIR="/var/run"
 ```
 
-Run SonarQube server
+16. Run SonarQube server
 ```sh
 # service sonar start
 ```
