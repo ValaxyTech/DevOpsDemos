@@ -1,47 +1,47 @@
 
 ## SonarQube Integration with Jenkins
 
-Install Sonar Scanner and sonarqube scanner plugin Jenkins to integrate sonarQube server. After that confingre SonarQube server and Sonar scanner details under manage jenkins. 
+Install Sonar Scanner and SonarQube scanner plugin Jenkins to integrate SonarQube server. After that configure SonarQube server and Sonar scanner details under manage Jenkins. 
 
 1. Login to jenkins server and install sonarqube scanner. 
 
-Sonarqube scanner URL : https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner
+SonarQube scanner URL : https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner
 
-Downlaod : https://sonarsource.bintray.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.2.0.1227-linux.zip
+Download : https://sonarsource.bintray.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.2.0.1227-linux.zip
 ```sh 
 # wget https://sonarsource.bintray.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.2.0.1227-linux.zip
 # unzip sonar-scanner-cli-3.2.0.1227-linux.zip
 # mv sonar-scanner-3.2.0.1227-linux /opt/sonar_scanner 
 ```
 
-2. Set sonarqube server details in sonar-scanner property file 
+2. Set SonarQube server details in sonar-scanner property file 
 ```sh 
 # vi /opt/sonar_scanner/conf/sonar-scanner.properties
 sonar.host.url=http://<Sonarqube_server>:9000
 ```
 
-2. Login to jenkins console and install "Sonarqube scanner" plugin
+2. Login to Jenkins console and install " SonarQube scanner" plugin
 
 ```sh 
-  Manage Jenkins --> Manage Plugins --> Available --> Search for "Sonarqube scanner" --> Install with restart 
+  Manage Jenkins --> Manage Plugins --> Available --> Search for " SonarQube scanner" --> Install with restart 
  ```
-3. Configure sonarqube scanner home path path
+3. Configure SonarQube scanner home path
 ```sh
    Manage Jenkins --> Global Tool Configuration --> SonarQube Scanner 
    Name  : sonar_scanner
    SONAR_RUNNER_HOME : /opt/sonar_scanner
 ```
 
-4. Configure sonarqube server name and authentication toaken 
+4. Configure SonarQube server name and authentication token 
 ```sh
    Manage Jenkins --> Configure Systems --> SonarQube Servers
     Name : SonarQube
 	ServerURL : http://<Sonarqube_server>:9000/sonar
 	Server authentication token  
-	Login to sonarqube server as a admin  My Account --> Security --> Generate Token
+	Login to SonarQube server as a admin  My Account --> Security --> Generate Token
 ```
 
-5. Create a job to test sonarqube. 
+5. Create a job to test SonarQube. 
 Provide below sonar property details under Build --> Execute SonarQube Scanner --> Analysis properties. it is mandatary.  
 
 ```sh
