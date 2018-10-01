@@ -1,12 +1,10 @@
 ##       ------ SonarQube Installations ------ 
 
-Pre-requisites: 
-1. Need one EC2 instance
-2. Need one MySQL server/ RDS MySQL Instances
+To install SonarQube we need an Linux EC2 instance which is installed MySQL otherwise Launch MySQL RDS instance to acomplish this
 
 Implementation Steps: 
 
-1. Launch an RDS MySQL Database Instance (It takes few minutes) 
+1. Launch an MySQL RDS Database Instance (It takes few minutes) 
 
 2. Launch an EC2 instance and Install MySQL client version 
 
@@ -18,12 +16,12 @@ Implementation Steps:
 ```sh
 # yum install java-1.8.0-openjdk -y
 ```
-4. Download Latest sonarqube version from website. 
+4. Download stable SonarQube version from below website. 
 website: https://www.sonarqube.org/downloads/
 
 Note: for this video I have downloaded version 6.0 : https://sonarsource.bintray.com/Distribution/sonarqube/sonarqube-6.0.zip
 
-5. download & unzip it to EC2 instance
+5. download & unzip it to Linux EC2 instance
 ```sh
 # cd /opt
 # wget https://sonarsource.bintray.com/Distribution/sonarqube/sonarqube-6.0.zip
@@ -36,6 +34,7 @@ Note: for this video I have downloaded version 6.0 : https://sonarsource.bintray
 ```sh 
 mysql -h <RDS_Instance_endpoint>:3306 -u sonardb -p 
 ```
+
 8. Create a new sonar database
 ```sh
 CREATE DATABASE sonar CHARACTER SET utf8 COLLATE utf8_general_ci;
@@ -47,7 +46,7 @@ CREATE USER sonar@localhost IDENTIFIED BY 'sonar';
 CREATE USER sonar@'%' IDENTIFIED BY 'sonar';
 ```
 
-10. Grant users permissions
+10. Grant database access permissions to users 
 ```sh
 GRANT ALL ON sonar.* TO sonar@localhost;
 GRANT ALL ON sonar.* TO sonar@'%';
@@ -63,12 +62,12 @@ QUIT
 ```
 ###       ------ On EC2 Instance ------
 
-12. edit sonarqube properties file 
+12. edit SonarQube properties file 
 ```sh
 # vi /opt/sonar/conf/sonar.properties
 sonar.jdbc.username=sonar
 sonar.jdbc.password=sonar
-mysql://sonarqubedb.c3rw4o6y09ny.ap-southeast-1.rds.amazonaws.com:3306/sonar?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true&useConfigs=maxPerformance&useSSL=false
+mysql://<MySQL_Database_Server>:3306/sonar?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true&useConfigs=maxPerformance&useSSL=false
 sonar.web.host=0.0.0.0
 sonar.web.context=/sonar
 
