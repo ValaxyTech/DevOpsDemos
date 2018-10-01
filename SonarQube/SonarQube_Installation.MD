@@ -2,8 +2,6 @@
 
 To install SonarQube we need an Linux EC2 instance which is installed MySQL otherwise Launch MySQL RDS instance to acomplish this
 
-Implementation Steps: 
-
 1. Launch an MySQL RDS Database Instance (It takes few minutes) 
 
 2. Launch an EC2 instance and Install MySQL client version 
