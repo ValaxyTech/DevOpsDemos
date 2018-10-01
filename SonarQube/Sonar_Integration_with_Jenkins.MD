@@ -1,7 +1,7 @@
 
 ## SonarQube Integration with Jenkins
 
-To integrate SonarQube with Jenkins we should install Sonar Scanner and sonarqube scanner plugin Jenkins. After that confingre SonarQube server and Sonar scanner under manage jenkins. 
+Install Sonar Scanner and sonarqube scanner plugin Jenkins to integrate sonarq+Qube server. After that confingre SonarQube server and Sonar scanner details under manage jenkins. 
 
 1. Login to jenkins server and install sonarqube scanner. 
 
