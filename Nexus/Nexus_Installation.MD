@@ -1,10 +1,13 @@
-###       ------ Nexus Installation ------
+##      ------ Nexus Installation ------
 
-1. Install java
+### Prerequisites
+
+1. EC2 instance with java installation. 
 
 ```sh
 # yum install java-1.8.0-openjdk -y
 ```
+### Implementation steps 
 
 2. Download and setup nexus stable version
 ```sh 
@@ -41,7 +44,7 @@
 
 http://<Nexus_server>:8081
 
-8. Use defualt credentials to login 
+8. Use default credentials to login 
 
 username : admin <br />
 password : admin123
@@ -55,4 +58,3 @@ password : admin123
 
 2. Unable to access nexus URL?
 make sure port 8081 is opened in security group. 
-
