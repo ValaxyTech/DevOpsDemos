@@ -13,7 +13,7 @@ service start docker
 ```sh
 useradd dockeradmin
 passwd dockeradmin
-usermod -aG dockeradmin
+usermod -aG docker dockeradmin
 ```
 
 4. Write a Docker file under /opt/docker
@@ -32,7 +32,7 @@ MAINTAINER "valaxytech@gmail.com"
 COPY ./webapp.war /usr/local/tomcat/webapps
 ```
 
-5. Login to Jenkins console and add 
+5. Login to Jenkins console and add Docker server to execute commands from Jenkins
 Manage Jenkins --> Configure system -->  Publish over SSH --> add Docker server and credentials
 
 6. Create Jenkins job 
@@ -53,13 +53,14 @@ C) send files or execute commands over SSH
  Exec command	: docker stop valaxy_demo; docker rm -f valaxy_demo; docker image rm -f valaxy_demo; cd /opt/docker; docker build -t valaxy_demo .  
 
 D) send files or execute commands over SSH  
+  Name: docker_host  
   Exec command	: docker run -d --name valaxy_demo -p 8090:8080 valaxy_demo  
 
-7. Login to Docker host and check images and containers
+7. Login to Docker host and check images and containers. (no images and containers)
 
 8. Execute Jenkins job
 
 9. check images and containers again on Docker host. This time an image and container get creates through Jenkins job
 
-10. Access web application from browser 
+10. Access web application from browser which is running on container
 <docker_host_Public_IP>:8090
