@@ -1,3 +1,6 @@
+## Simple DevOps Project -3 
+
+
 1. Lanunch an EC2 instance for Docker host
 
 2. Install docker on EC2 instance and start services 
