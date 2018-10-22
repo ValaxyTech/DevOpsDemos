@@ -6,7 +6,7 @@
 2. Install docker on EC2 instance and start services 
 ```sh 
 yum install docker
-service start docker 
+service docker start
 ```
 
 3. create a new user for Docker management and add him to Docker (default) group
