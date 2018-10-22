@@ -17,7 +17,7 @@ usermod -aG dockeradmin
 ```sh
 mkdir /opt/docker
 
-vi Dockerfile
+### vi Dockerfile
 # Pull base image 
 From tomcat:8-jre8 
 
