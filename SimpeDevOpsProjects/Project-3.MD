@@ -10,7 +10,7 @@ service start docker
 ```sh
 useradd dockeradmin
 passwd dockeradmin
-sudo usermod -aG dockeradmin
+usermod -aG dockeradmin
 ```
 
 4. Write a docker file under /opt/docker
