@@ -4,10 +4,10 @@
 1. Launch an EC2 instance for Docker host
 
 1. Install docker on EC2 instance and start services 
-```sh 
-yum install docker
-service docker start
-```
+  ```sh 
+  yum install docker
+  service docker start
+  ```
 
 1. create a new user for Docker management and add him to Docker (default) group
 ```sh
