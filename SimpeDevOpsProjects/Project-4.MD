@@ -1,12 +1,12 @@
 # Simple DevOps Project - 04
 
-In this project, we will be seeing how to *use Git, Jenkins, Ansible, DockerHub, Docker to DEPLOY on docker containers.,*
+In this project, we will be see how to *use Git, Jenkins, Ansible, DockerHub, Docker to DEPLOY on docker containers.,*
 
 *Follow this project in *[Youtube](https://www.youtube.com/c/valaxytechnologies)**
 
 #### PreRequisites
 1. Jenkins - Get help [here](https://www.youtube.com/watch?v=M32O4Yv0ANc)
-1. Ansible Get help [here](https://www.youtube.com/watch?v=79xFyOc_eEY)
+1. Ansible - Get help [here](https://www.youtube.com/watch?v=79xFyOc_eEY)
 
 In *part-01* we create Docker image on ansible server through Jenkins job and pushed it onto DockerHub. 
 
@@ -27,7 +27,7 @@ In *part-01* we create Docker image on ansible server through Jenkins job and pu
     ```
     
 1. Login to Jenkins console
-1. Create *Jenkins job*, Fill in the following values,
+1. Create *Jenkins job*, Fill the following details,
    - *Source Code Management:*
       - Repository : `https://github.com/ValaxyTech/hello-world.git`
       - Branches to build : `*/master`  
@@ -59,22 +59,22 @@ In *part-01* we create Docker image on ansible server through Jenkins job and pu
               docker rmi valaxy_demo:v1.0 valaxy/valaxy_demo:v1.0
               ```
 1. Login to Docker host and check images and containers. (no images and containers)
-1. login to docker hub and check no images with for valaxy_demo 
+1. login to docker hub and check. shouldn't find images with for valaxy_demo 
 
 1. Execute Jenkins job
 
-1. check images in Docker hub
+1. check images in Docker hub. Now you could able to see new images pushed to Valaxy Docker_Hub
 
 #### Troubleshooting:
 1. Docker should be installed on ansible server 
 1. Should login to "docker hub" on ansible server
 1. Docker admin user should be part of `docker` group
 
-in *Part-02* we we create *create_docker_container.yml* playbook. this get intiated by jenkins job, run by ansible and exected on dokcer host
+In *Part-02* we create *create_docker_container.yml* playbook. this get intiated by jenkins job, run by ansible and exected on dokcer_host
 
 ### Part-02 
 
-1. Write a yml file to create a container 
+1. Write a yml file to create a container (file name : create_docker_container.yml)
    ```yaml
      ---
      - hosts: web-servers
@@ -100,13 +100,16 @@ in *Part-02* we we create *create_docker_container.yml* playbook. this get intia
           
 1. Execute Jenkins job. 
 
-1. You could see a new container on your docker host. access it from browser
+1. You could see a new container on your docker host. can able access it from browser on port 8090
 
-In *Part-03* we try to improvise to store previous versions
+Troubleshooting: 
+Makesure you have opened required ports on AWS Security group for this server. 
+
+In *Part-03* we try to improvise to store docker images previous versions
 ### Part-03
 
 So for we used latest docker image to build a container, but what happens if latest version is not working?
-One easiest solution is, maintaining version for each build. this can be achieved by using environment variables. 
+One easiest solution is, maintaining version for each build. This can be achieved by using environment variables. 
 
 here we use 2 variables 
 - `BUILD_ID` -  The current build id
@@ -114,7 +117,7 @@ here we use 2 variables
 
 for more info Please refer [this URL](https://wiki.jenkins.io/display/JENKINS/Building+a+software+project)
 
-Let us modify jenkins job which was created in *Part-01* 
+Lets modify jenkins job which was created in *Part-01* as below.
 
 1. Create Jenkins job 
    - *Source Code Management:*
