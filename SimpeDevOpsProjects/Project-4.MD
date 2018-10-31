@@ -20,7 +20,8 @@ In this project, we will be see how to *use Git, Jenkins, Ansible, DockerHub, Do
 
 In *part-01* we create Docker image on ansible server through Jenkins job and pushed it onto DockerHub. 
 
-### Part-01:
+### Part-01 : Create an docker image 
+
 1. Launch an EC2 instance for Docker host
 1. Install docker on EC2 instance and start services 
     ```sh 
@@ -82,7 +83,7 @@ In *part-01* we create Docker image on ansible server through Jenkins job and pu
 
 In *Part-02* we create *create_docker_container.yml* playbook. this get intiated by jenkins job, run by ansible and exected on dokcer_host
 
-### Part-02 
+### Part-02 : Deploy to Containers
 
 1. Write a yml file to create a container (file name : create_docker_container.yml)
    ```yaml
@@ -116,7 +117,8 @@ Troubleshooting:
 Makesure you have opened required ports on AWS Security group for this server. 
 
 In *Part-03* we try to improvise to store docker images previous versions
-### Part-03
+
+### Part-03 : Deploy with Version Control Containers 
 
 So for we used latest docker image to build a container, but what happens if latest version is not working?
 One easiest solution is, maintaining version for each build. This can be achieved by using environment variables. 
