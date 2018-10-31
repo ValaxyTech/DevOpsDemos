@@ -12,6 +12,12 @@ In this project, we will be see how to *use Git, Jenkins, Ansible, DockerHub, Do
 1. Jenkins - Get help [here](https://www.youtube.com/watch?v=M32O4Yv0ANc)
 1. Ansible - Get help [here](https://www.youtube.com/watch?v=79xFyOc_eEY)
 
+#### Previous DevOps projects:
+
+1. Simple DevOps project-1 [here](https://www.youtube.com/watch?v=Z9G5stlXoyg)
+1. Simple DevOps project-2 [here](https://www.youtube.com/watch?v=nE4b9mW2ym0)
+1. Simple DevOps project-3 [here](https://www.youtube.com/watch?v=nMLQgXf8tZ0)
+
 In *part-01* we create Docker image on ansible server through Jenkins job and pushed it onto DockerHub. 
 
 ### Part-01:
