@@ -56,6 +56,7 @@ In *part-01* we create Docker image on ansible server through Jenkins job and pu
               docker rmi valaxy_demo:v1.0 valaxy/valaxy_demo:v1.0
               ```
 1. Login to Docker host and check images and containers. (no images and containers)
+
 1. login to docker hub and check. shouldn't find images with for valaxy_demo 
 
 1. Execute Jenkins job
