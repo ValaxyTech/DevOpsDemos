@@ -11,6 +11,7 @@ In this project, we will be see how to *use Git, Jenkins, Ansible, DockerHub, Do
 #### PreRequisites
 1. Jenkins - Get help [here](https://www.youtube.com/watch?v=M32O4Yv0ANc)
 1. Ansible - Get help [here](https://www.youtube.com/watch?v=79xFyOc_eEY)
+1. Setup a EC2 instahce as ansible client and install docker. [here](https://www.youtube.com/watch?v=nMLQgXf8tZ0)
 
 #### Previous DevOps projects:
 
@@ -21,21 +22,6 @@ In this project, we will be see how to *use Git, Jenkins, Ansible, DockerHub, Do
 In *part-01* we create Docker image on ansible server through Jenkins job and pushed it onto DockerHub. 
 
 ### Part-01 : Create an docker image 
-
-1. Launch an EC2 instance for Docker host
-1. Install docker on EC2 instance and start services 
-    ```sh 
-    yum install docker
-    service docker start
-    ```
-1. Create a new user for Docker management add user to Docker (default) group
-    ```sh
-    # creating dockeradmin user
-    useradd dockeradmin
-    passwd dockeradmin
-    # Adding user to docker group
-    usermod -aG docker dockeradmin
-    ```
     
 1. Login to Jenkins console
 1. Create *Jenkins job*, Fill the following details,
