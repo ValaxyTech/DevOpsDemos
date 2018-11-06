@@ -77,7 +77,7 @@ In *Part-02* we create *create_docker_container.yml* playbook. this get intiated
         - name: remove stopped container
           shell: docker rm -f valaxy_demo
 	  
-	- name: remove docker images 
+	- name: remove docker images
 	  shell: docker image rm -f valaxy/valaxy_demo
           
         - name: create docker image
