@@ -2,7 +2,7 @@
 
 
 
-In this project, we will be see how to *use Git, Jenkins, Ansible, DockerHub, Docker to DEPLOY on docker containers.,*
+In this project, we will be see how to *use Git, Jenkins, Ansible, DockerHub, Docker to DEPLOY a docker containers.,*
 
 *Follow this project in *[Youtube](https://www.youtube.com/c/valaxytechnologies)**
 
