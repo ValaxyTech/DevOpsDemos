@@ -11,7 +11,7 @@ In this project, we will be see how to *use Git, Jenkins, Ansible, DockerHub, Do
 #### PreRequisites
 1. Jenkins - Get help [here](https://www.youtube.com/watch?v=M32O4Yv0ANc)
 1. Ansible - Get help [here](https://www.youtube.com/watch?v=79xFyOc_eEY)
-1. Setup a EC2 instahce as ansible client and install docker. [here](https://www.youtube.com/watch?v=nMLQgXf8tZ0)
+1. Setup ansible client and install docker. [here](https://www.youtube.com/watch?v=nMLQgXf8tZ0)
 
 #### Previous DevOps projects:
 
@@ -44,17 +44,11 @@ In *part-01* we create Docker image on ansible server through Jenkins job and pu
        - Remote directory	: `//opt//docker`
        - Exec Command: 
 	      - `cd /opt/docker`
-          - `docker build -t valaxy_demo:v1.0 .`
-      - *Send files or execute commands over SSH*
-        - Name: `ansible_server`
-        - Source files: `Dockerfile`
-        - Remote directory: `//opt//docker`
-        - Exec Command:
-	       ```sh
-	          docker tag valaxy_demo:v1.0 valaxy/valaxy_demo:v1.0
-              docker push valaxy/valaxy_demo:v1.0
-              docker rmi valaxy_demo:v1.0 valaxy/valaxy_demo:v1.0
-              ```
+          - `docker build -t valaxy_demo .`
+	      - `docker tag valaxy_demo valaxy/valaxy_demo`
+          - `docker push valaxy/valaxy_demo`
+          - `docker rmi valaxy_demo valaxy/valaxy_demo`
+              
 1. Login to Docker host and check images and containers. (no images and containers)
 
 1. login to docker hub and check. shouldn't find images with for valaxy_demo 
@@ -70,7 +64,7 @@ In *part-01* we create Docker image on ansible server through Jenkins job and pu
 
 In *Part-02* we create *create_docker_container.yml* playbook. this get intiated by jenkins job, run by ansible and exected on dokcer_host
 
-### Part-02 : Deploy to Containers
+### Part-02 : Deploy Containers
 
 1. Write a yml file to create a container (file name : create_docker_container.yml)
    ```yaml
@@ -82,6 +76,9 @@ In *Part-02* we create *create_docker_container.yml* playbook. this get intiated
           shell: docker stop valaxy_demo
         - name: remove stopped container
           shell: docker rm -f valaxy_demo
+		  
+		- name: remove docker images 
+		  shell: docker image rm -f valaxy/valaxy_demo
           
         - name: create docker image
           shell: docker run -d --name valaxy_demo -p 8090:8080 valaxy/valaxy_demo
@@ -107,7 +104,7 @@ In *Part-03* we try to improvise to store docker images previous versions
 
 ### Part-03 : Deploy with Version Control Containers 
 
-So for we used latest docker image to build a container, but what happens if latest version is not working?
+So for we used latest docker image to build a container, but what happens if latest version is not working?  
 One easiest solution is, maintaining version for each build. This can be achieved by using environment variables. 
 
 here we use 2 variables 
@@ -136,22 +133,14 @@ Lets modify jenkins job which was created in *Part-01* as below.
      - Name: `ansible_server`
      - Source files	: `Dockerfile`
      - Remote directory	: `//opt//docker`
-     - Exec Command: 
-	    ```sh
-	      cd /opt/docker
-          docker build -t $JOB_NAME:v1.0.$BUILD_ID .
-          ```
-    - *Send files or execute commands over SSH*
-      - Name: `ansible_server`
-      - Source files: `Dockerfile`
-      - Remote directory: `//opt//docker`
       - Exec Command:
         ```sh
-        docker tag $JOB_NAME:v1.0.$BUILD_ID valaxy/$JOB_NAME:v1.0.$BUILD_ID
-        docker tag $JOB_NAME:v1.0.$BUILD_ID valaxy/$JOB_NAME:latest
-        docker push valaxy/$JOB_NAME:v1.0.$BUILD_ID 
+		cd /opt/docker
+        docker tag $JOB_NAME:v1.$BUILD_ID valaxy/$JOB_NAME:v.$BUILD_ID
+        docker tag $JOB_NAME:v1.$BUILD_ID valaxy/$JOB_NAME:latest
+        docker push valaxy/$JOB_NAME:v1.$BUILD_ID 
         docker push valaxy/$JOB_NAME:latest
-        docker rmi $JOB_NAME:v1.0.$BUILD_ID valaxy/$JOB_NAME:v1.0.$BUILD_ID   valaxy/$JOB_NAME:latest
+        docker rmi $JOB_NAME:v1.$BUILD_ID valaxy/$JOB_NAME:v1.$BUILD_ID   valaxy/$JOB_NAME:latest
         ```
 ##### References
 [1] - [Jenkins Docs - Building Software Projects](https://wiki.jenkins.io/display/JENKINS/Building+a+software+project)
