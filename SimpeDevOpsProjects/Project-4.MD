@@ -2,7 +2,7 @@
 
 
 
-In this project, we will be see how to *use Git, Jenkins, Ansible, DockerHub, Docker to DEPLOY a docker containers.,*
+In this project, we will be see how to *use Git, Jenkins, Ansible, DockerHub, Docker to DEPLOY on a docker containers.,*
 
 *Follow this project in *[Youtube](https://www.youtube.com/c/valaxytechnologies)**
 
@@ -75,8 +75,7 @@ In *Part-02* we create *create_docker_container.yml* playbook. this get intiated
         - name: stop previous version docker
           shell: docker stop valaxy_demo
         - name: remove stopped container
-          shell: docker rm -f valaxy_demo
-		  
+          shell: docker rm -f valaxy_demo	  
         - name: remove docker images
           shell: docker image rm -f valaxy/valaxy_demo
           
