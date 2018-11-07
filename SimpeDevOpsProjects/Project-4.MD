@@ -12,6 +12,7 @@ In this project, we will be see how to *use Git, Jenkins, Ansible, DockerHub, Do
 1. Jenkins - Get help [here](https://www.youtube.com/watch?v=M32O4Yv0ANc)
 1. Ansible - Get help [here](https://www.youtube.com/watch?v=79xFyOc_eEY)
 1. Setup ansible client and install docker. [here](https://www.youtube.com/watch?v=nMLQgXf8tZ0)
+1. Docker Hub account 
 
 #### Previous DevOps projects:
 
