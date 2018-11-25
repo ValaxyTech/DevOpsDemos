@@ -1,7 +1,7 @@
 # SonarQube Installation
 
 SonarQube provides the capability to not only show health of an application but also to highlight issues newly introduced. With a Quality Gate in place, you can fix the leak and therefore improve code quality systematically.
-### Follow this Artical in **[YouTube](https://www.youtube.com/watch?v=zRQrcAi9UdU)**
+### Follow this Article in **[YouTube](https://www.youtube.com/watch?v=zRQrcAi9UdU)**
 
 ### Prerequisites
 1. EC2 instance with Java installed
@@ -16,7 +16,7 @@ Install MySQL client version
  ```
 Download stable SonarQube version from below website. 
 - Website: https://www.sonarqube.org/downloads/
-- Note: This Artical written for SonarQube6.0  
+- Note: This Article written for SonarQube6.0  
 
 Download & unzip SonarQube 6.0
 ```sh
@@ -56,14 +56,15 @@ SELECT User FROM mysql.user;
 FLUSH PRIVILEGES;
 QUIT
 ```
-So for you have configured required database information on RDS. Lets Jump back to your EC2 instance and eanble SonarQube properites file to connect his Database.
+So for you have configured required database information on RDS. Let’s Jump back to your EC2 instance and enable SonarQube properties file to connect his Database.
 
-Edit SonarQube properties file 
+### ON EC2 Instance
+Edit sonar properties file to uncomment and provide required information for below properties. 
 
 - File Name: /opt/sonar/conf/sonar.properties
   - sonar.jdbc.username=`sonar`
   - sonar.jdbc.password=`sonar`
-  - mysql:`<MySQL_Database_Server>:3306`/sonar?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true&useConfigs=maxPerformance&useSSL=false
+  - sonar.jdbc.url=jdbc:mysql://`<RDS_DATABAE_ENDPOINT>:3306`/sonar?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true&useConfigs=maxPerformance&useSSL=false
   - sonar.web.host=`0.0.0.0`
   - sonar.web.context=`/sonar`
 
@@ -73,7 +74,7 @@ Start SonarQube service
 # ./sonar.sh start
 ```
 
-### Optional 
+##### Run SonarQube as a default service 
 
 Implement SonarQube server as a service
 ```sh
@@ -97,10 +98,14 @@ Start SonarQube server
 ```sh
 # service sonar start
 ```
-
+SonarQube application uses port 9000. access SonarQube from browser
+```sh
+  http://<EC2_PUBLIC_IP>:9000/sonar
+```
 ###  Troubleshooting 
 
 1. Check whether you enabled port 9000 in EC2 instance security group
 2. Check whether you enabled EC2 instance IP range in RDS security group
 
-
+### Next Step
+- [x] [Integrate SonarQube with Jenkins](https://www.youtube.com/watch?v=k-3krTRuAFA)
