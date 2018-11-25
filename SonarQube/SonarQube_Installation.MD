@@ -73,7 +73,7 @@ Start SonarQube service
 # ./sonar.sh start
 ```
 
-##### Optional 
+### Optional 
 
 Implement SonarQube server as a service
 ```sh
