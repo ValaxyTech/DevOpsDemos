@@ -1,56 +1,54 @@
-##                                 ------ SonarQube Installation ------ 
+# SonarQube Installation
 
-To install SonarQube we need an Linux EC2 instance which is installed MySQL otherwise Launch MySQL RDS instance to acomplish this
+SonarQube provides the capability to not only show health of an application but also to highlight issues newly introduced. With a Quality Gate in place, you can fix the leak and therefore improve code quality systematically.
+### Follow this Artical in **[YouTube](https://www.youtube.com/watch?v=zRQrcAi9UdU)**
 
-1. Launch an MySQL RDS Database Instance (It takes few minutes) 
+### Prerequisites
+1. EC2 instance with Java installed
+1. MySQL Database Server or MyQL RDS instance. **[Get help here](https://www.youtube.com/watch?v=vLaW6b441x0)**
 
-2. Launch an EC2 instance and Install MySQL client version 
+### Installation
 
-```sh
-# yum install mysql
-```
+Install MySQL client version 
 
-3. Install java 
-```sh
-# yum install java-1.8.0-openjdk -y
-```
-4. Download stable SonarQube version from below website. 
-website: https://www.sonarqube.org/downloads/
+ ```sh
+  # yum install mysql
+ ```
+Download stable SonarQube version from below website. 
+- Website: https://www.sonarqube.org/downloads/
+- Note: This Artical written for SonarQube6.0  
 
-Note: for this video I have downloaded version 6.0 : https://sonarsource.bintray.com/Distribution/sonarqube/sonarqube-6.0.zip
-
-5. download & unzip it to Linux EC2 instance
+Download & unzip SonarQube 6.0
 ```sh
 # cd /opt
 # wget https://sonarsource.bintray.com/Distribution/sonarqube/sonarqube-6.0.zip
 # unzip sonarqube-6.0.zip
 # mv /opt/sonarqube-6.0 /opt/sonar
 ```
-6. Allow RDS instance security group to access SonarQube server 
+Allow RDS instance security group to access SonarQube server 
 
-7. Connect to RDS instance 
+Connect to RDS instance with database credentials
 ```sh 
-mysql -h <RDS_Instance_endpoint>:3306 -u sonardb -p 
+mysql -h <RDS_Instance_endpoint>:3306 -u <DB_USER_NAME> -p <DB_PASSWORD> 
 ```
-
-8. Create a new sonar database
+Create a new sonar database
 ```sh
 CREATE DATABASE sonar CHARACTER SET utf8 COLLATE utf8_general_ci;
 ```
 
-9. Create a local and a remote user
+Create a local and a remote user
 ```sh
 CREATE USER sonar@localhost IDENTIFIED BY 'sonar';
 CREATE USER sonar@'%' IDENTIFIED BY 'sonar';
 ```
 
-10. Grant database access permissions to users 
+Grant database access permissions to users 
 ```sh
 GRANT ALL ON sonar.* TO sonar@localhost;
 GRANT ALL ON sonar.* TO sonar@'%';
 ```
 
-11. check users and databases 
+check users and databases 
 ```sh
 use mysql
 show databases;
@@ -58,20 +56,18 @@ SELECT User FROM mysql.user;
 FLUSH PRIVILEGES;
 QUIT
 ```
-###       ------ On EC2 Instance ------
+So for you have configured required database information on RDS. Lets Jump back to your EC2 instance and eanble SonarQube properites file to connect his Database.
 
-12. edit SonarQube properties file 
-```sh
-# vi /opt/sonar/conf/sonar.properties
-sonar.jdbc.username=sonar
-sonar.jdbc.password=sonar
-mysql://<MySQL_Database_Server>:3306/sonar?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true&useConfigs=maxPerformance&useSSL=false
-sonar.web.host=0.0.0.0
-sonar.web.context=/sonar
+Edit SonarQube properties file 
 
-```
+- File Name: /opt/sonar/conf/sonar.properties
+  - sonar.jdbc.username=`sonar`
+  - sonar.jdbc.password=`sonar`
+  - mysql:`<MySQL_Database_Server>:3306`/sonar?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true&useConfigs=maxPerformance&useSSL=false
+  - sonar.web.host=`0.0.0.0`
+  - sonar.web.context=`/sonar`
 
-13. Start SonarQube service 
+Start SonarQube service 
 ```sh
 # cd /opt/sonar/bin/linux-x86-64/
 # ./sonar.sh start
@@ -79,14 +75,14 @@ sonar.web.context=/sonar
 
 ##### Optional 
 
-14. Implement SonarQube server as a service
+Implement SonarQube server as a service
 ```sh
 Copy sonar.sh to etc/init.d/sonar and modify it according to your platform.
 # sudo cp /opt/sonar/bin/linux-x86-64/sonar.sh /etc/init.d/sonar
 # sudo vi /etc/init.d/sonar
 ```
 
-15. add below values to your /etc/init.d/sonar file
+Add below values to your /etc/init.d/sonar file
 ```sh
 Insert/modify below values
 SONAR_HOME=/opt/sonar
@@ -97,7 +93,7 @@ WRAPPER_CONF="${SONAR_HOME}/conf/wrapper.conf"
 PIDDIR="/var/run"
 ```
 
-16. Run SonarQube server
+Start SonarQube server
 ```sh
 # service sonar start
 ```
@@ -106,3 +102,5 @@ PIDDIR="/var/run"
 
 1. Check whether you enabled port 9000 in EC2 instance security group
 2. Check whether you enabled EC2 instance IP range in RDS security group
+
+
