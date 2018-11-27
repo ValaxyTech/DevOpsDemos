@@ -1,6 +1,8 @@
 # Nexus Installation
 Nexus is one a artifact repository which helps to store your build outcomes.  
-Follow this article in **[Youtube](https://www.youtube.com/watch?v=83AGz9huJGo)
+
+### Follow this article in **[Youtube](https://www.youtube.com/watch?v=83AGz9huJGo)
+
 ### Prerequisites
 
 1. EC2 instance with java 
