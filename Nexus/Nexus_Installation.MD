@@ -1,6 +1,5 @@
 # Nexus Installation
-Nexus is one a artifact repository which helps to store your build outcomes. 
-Get help 
+Nexus is one a artifact repository which helps to store your build outcomes.  
 Follow this article in **[Youtube](https://www.youtube.com/watch?v=83AGz9huJGo)
 ### Prerequisites
 
