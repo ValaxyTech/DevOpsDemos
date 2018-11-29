@@ -25,8 +25,10 @@ Test the connection "Test Connection"
 
 ### Part-02 - Execute job to connect 
 
-create a copywarfile.yml on Ansible 
+create a copywarfile.yml on Ansible under /opt/playbooks
+
 ```sh 
+# copywarfile.yml
 ---
 - hosts: all 
   become: true
@@ -37,10 +39,11 @@ create a copywarfile.yml on Ansible
 		dest: /opt/apache-tomcat-8.5.32/webapps
 ```
 Add tomcat server details  to /etc/ansible/hosts (if you are using other hosts file update server info there)
-
+```sh
 echo "<server_IP>" >> /etc/ansible/hosts
-
+```
 Create *Jenkins job*, Fill the following details,
+
    - *Source Code Management:*
       - Repository: `https://github.com/ValaxyTech/hello-world.git`
       - Branches to build : `*/master`  
@@ -48,16 +51,15 @@ Create *Jenkins job*, Fill the following details,
      - Root POM:`pom.xml`
      - Goals and options : `clean install package`
 	 
-Add post-build steps 
-	- Send files or execute commands over SSH
-	    - SSH Server : `ansible_server`
-		- Source fiels: webapp/target/*.war
-		- Remote directory //opt//playbooks 
-Post Steps
-Add post-build steps 
-	- Send files or execute commands over ssH
-	    - SSH Server : `ansible_server`
-		- Exec command ansible-playbook /opt/playbooks/copywarfile.yml
+- *Add post-build steps*
+    - Send files or execute commands over SSH
+      - SSH Server : `ansible_server`
+      - Source fiels: `webapp/target/*.war`
+      - Remote directory:  `//opt//playbooks`
+- *Add post-build steps*
+    - Send files or execute commands over ssH
+      - SSH Server : `ansible_server`
+      - Exec command ansible-playbook /opt/playbooks/copywarfile.yml
 		
 Execute job and you should be able to seen build has been deployed on Tomcat server. 
 
