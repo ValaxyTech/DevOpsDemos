@@ -34,9 +34,9 @@ create a copywarfile.yml on Ansible under /opt/playbooks
   become: true
   tasks: 
     - name: copy jar/war onto tomcat servers
-	  copy:
-	    src: /op/playbooks/wabapp/target/webapp.war
-		dest: /opt/apache-tomcat-8.5.32/webapps
+        copy:
+          src: /op/playbooks/wabapp/target/webapp.war
+          dest: /opt/apache-tomcat-8.5.32/webapps
 ```
 Add tomcat server details  to /etc/ansible/hosts (if you are using other hosts file update server info there)
 ```sh
