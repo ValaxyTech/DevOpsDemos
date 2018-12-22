@@ -12,11 +12,11 @@ Install git packages on jenkins server
   yum install git -y
  ```
 
-#### Setup maven on jenkins console
-- Install maven plugin without restart  
+#### Setup Git on jenkins console
+- Install git plugin without restart  
   - `Manage Jenkins` > `Jenkins Plugins` > `available` > `github`
 
-- Configure java path
+- Configure git path
   - `Manage Jenkins` > `Global Tool Configuration` > `git`
 
 #### Next Steps
