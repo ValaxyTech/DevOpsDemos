@@ -13,7 +13,7 @@
    Bucket name: valaxy-s3-artifact 
    Region: Singapore
    ```
-1. Create new IAM role with "S3 full access" and assign it to jenkins server 
+1. Create new IAM role with "S3 full access" and assign it to jenkins server  
    `IAM --> Create role --> EC2` 
    ```ssh 
    Permission: AmazonS3FullAccess 
@@ -21,10 +21,10 @@
    name: S3_Full_Access
    ```
    
-1. Install "S3 Publisher" plugin on Jenkins
+1. Install "S3 Publisher" plugin on Jenkins  
   `Manage Jenkins --> Manage Plugins --> Availabe --> S3 publisher`
 
-1. Configure S3 profile on Jenkins 
+1. Configure S3 profile on Jenkins  
   `Manage Jenkins --> Configure Systems --> Amazon S3 profiles` 
    ```sh
    Profile name : s3-artifact-repository 
