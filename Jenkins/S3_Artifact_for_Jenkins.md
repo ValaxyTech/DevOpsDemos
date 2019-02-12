@@ -7,7 +7,7 @@
   Jenkins server **[Get Help here](https://www.youtube.com/watch?v=M32O4Yv0ANc)
 
    ### Setup steps 
-1. Create a S3 bucket to store artifacts
+1. Create a S3 bucket to store artifacts  
     `S3 --> Create bucket `
       ```sh 
    Bucket name: valaxy-s3-artifact 
