@@ -1,7 +1,7 @@
 
 #  S3 as a artifact for Jenkins
 
-Follow this in YouTube **[Get Help here](https://youtu.be/GQZYpIRxi-g)**
+Follow this in  **[YouTube](https://youtu.be/GQZYpIRxi-g)**
 
 ### Prerequisites
 1. Create Jenkins Server
