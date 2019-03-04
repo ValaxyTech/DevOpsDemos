@@ -50,7 +50,14 @@ C) send files or execute commands over SSH
  Source files	: `webapp/target/*.war`
  Remove prefix	: `webapp/target`
  Remote directory	: `//opt//docker`  
- Exec command	: `docker stop valaxy_demo; docker rm -f valaxy_demo; docker image rm -f valaxy_demo; cd /opt/docker; docker build -t valaxy_demo .`
+ Exec command[s]	: 
+  ```sh
+  docker stop valaxy_demo;
+  docker rm -f valaxy_demo;
+  docker image rm -f valaxy_demo;
+  cd /opt/docker;
+  docker build -t valaxy_demo .
+  ```
 
 D) send files or execute commands over SSH  
   Name: `docker_host`  
