@@ -6,6 +6,8 @@ Nexus is one a artifact repository which helps to store your build outcomes.
 
 1. EC2 instance with java 
 
+yum install java-1.8.0-openjdk -y
+
 ### Implementation steps 
 
 Download and setup nexus stable version
