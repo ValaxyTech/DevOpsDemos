@@ -20,6 +20,8 @@ To get help on dynamic inventory please follow  [Ansible Official Document](http
    export AWS_ACCESS_KEY_ID='1bc123'
    export AWS_SECRET_ACCESS_KEY='abc123'
    ```
+1. To export keys permanently make sure that you have installed pip and boto and add credentials ~/.boto file
+
 1. add executing permissions to ec2.py script
    ```sh
    chmod 755 ec2.py
