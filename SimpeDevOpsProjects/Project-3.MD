@@ -26,7 +26,7 @@ mkdir /opt/docker
 From tomcat:8-jre8 
 
 # Maintainer
-MAINTAINER "valaxytech@gmail.com" 
+MAINTAINER "valaxytech" 
 
 # copy war file on to container 
 COPY ./webapp.war /usr/local/tomcat/webapps
@@ -47,14 +47,21 @@ B) Build
  
 C) send files or execute commands over SSH
  Name: docker_host  
- Source files	: webapp/target/*.war  
- Remove prefix	: webapp/target  
- Remote directory	: //opt//docker  
- Exec command	: docker stop valaxy_demo; docker rm -f valaxy_demo; docker image rm -f valaxy_demo; cd /opt/docker; docker build -t valaxy_demo .  
+ Source files	: `webapp/target/*.war`
+ Remove prefix	: `webapp/target`
+ Remote directory	: `//opt//docker`  
+ Exec command[s]	: 
+  ```sh
+  docker stop valaxy_demo;
+  docker rm -f valaxy_demo;
+  docker image rm -f valaxy_demo;
+  cd /opt/docker;
+  docker build -t valaxy_demo .
+  ```
 
 D) send files or execute commands over SSH  
-  Name: docker_host  
-  Exec command	: docker run -d --name valaxy_demo -p 8090:8080 valaxy_demo  
+  Name: `docker_host`  
+  Exec command	: `docker run -d --name valaxy_demo -p 8090:8080 valaxy_demo`  
 
 7. Login to Docker host and check images and containers. (no images and containers)
 
@@ -63,4 +70,6 @@ D) send files or execute commands over SSH
 9. check images and containers again on Docker host. This time an image and container get creates through Jenkins job
 
 10. Access web application from browser which is running on container
+```
 <docker_host_Public_IP>:8090
+```

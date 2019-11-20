@@ -61,7 +61,7 @@ In *part-01* we create Docker image on ansible server through Jenkins job and pu
 #### Troubleshooting:
 1. Docker should be installed on ansible server 
 1. Should login to "docker hub" on ansible server
-1. Docker admin user should be part of `docker` group
+1. ansadmin user should be part of `docker` group
 
 In *Part-02* we create *create_docker_container.yml* playbook. this get intiated by jenkins job, run by ansible and exected on dokcer_host
 
