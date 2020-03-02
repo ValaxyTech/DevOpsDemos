@@ -75,7 +75,8 @@
     kubectl expose deployment sample-nginx --port=80 --type=LoadBalancer
     kubectl get services -o wide
     ```
- 1. To delete cluster
+ 1. To delete cluster: In order to delete the cluster, you must set KOPS_STATE_STORE environment variable if it is set temporary or else kops command cannot identify cluster details. 
     ```sh
+     export KOPS_STATE_STORE=s3://dev.k8s.valaxy.in   //set environment variable 
      kops delete cluster dev.k8s.valaxy.in --yes
     ```
